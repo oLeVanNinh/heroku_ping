@@ -11,7 +11,7 @@ export class SiteInput extends React.Component {
     return(
       <form>
         <label className="form-group">
-          <input className="form-control" onChange={props.handleUrlInPut} onPaste={props.handleUrlInPut} />
+          <input className="form-control" onChange={props.handleUrlInPut} onPaste={props.handleUrlInPut} value={props.url} />
           <button className="btn" type="button" onClick={props.handleAddUrl}>Add</button>
         </label>
       </form>

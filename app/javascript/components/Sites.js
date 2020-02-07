@@ -28,10 +28,12 @@ class Sites extends React.Component {
     const url = this.state.url;
     const urlPattern = /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/g
 
-    if (url.match(urlPattern).length > 0) {
+    if (!!url.match(urlPattern)) {
       axios.post('/sites',{url: url}).then(res => {
-        const site = res.data;
-        this.setState({sites});
+        const sites = this.state.sites;
+        const url = '';
+        sites.push(res.data.site);
+        this.setState({sites, url});
       })
       .catch(err => console.log(err));
     }
@@ -42,7 +44,7 @@ class Sites extends React.Component {
     return (
       <React.Fragment>
         <div className="container">
-        <SiteInput handleUrlInPut={this.handleUrlInPut} handleAddUrl={this.handleAddUrl} />
+        <SiteInput handleUrlInPut={this.handleUrlInPut} handleAddUrl={this.handleAddUrl} url={this.state.url} />
         {sites.length > 0 && sites.map((site, index) =>
           <UrlBar url={site.url} key={index} />
         )}
