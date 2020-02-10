@@ -5,7 +5,7 @@ task :ping => :environment do
   sites = Site.all
   sites.each do |site|
     p "Starting ping to #{site.url}"
-    p Net::Ping::External.new.ping(site.url)
+    p HerokuPing.new(site.url).ping
     p "End"
   end
 
