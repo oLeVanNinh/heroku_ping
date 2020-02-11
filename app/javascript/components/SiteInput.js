@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 export class SiteInput extends React.Component {
   constructor(props) {

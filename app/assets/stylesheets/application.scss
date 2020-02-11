@@ -123,16 +123,22 @@ blockquote, q {
   }
 
   .edit {
-    color: green;
+    background-color: #28a745;
     margin-right: 5px;
   }
 
   .delete {
-    color: red;
+    background-color: red;
+  }
+
+  .edit, .delete {
+    svg {
+      pointer-events: none;
+    }
   }
 
   .btn {
-    background-color: rgb(216, 216, 221);
+    color: #fff;
   }
 }
 
